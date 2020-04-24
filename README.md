@@ -1,8 +1,6 @@
 # Banks Search Application - kukuFM
 
 - [x] frontend  - [ **Demo Netlify** ](https://amazing-minsky-53cfda.netlify.app/)
-- [x] frontend  - [ **Demo Heroku** ]()
-
 
 
 ## Problem Statement
@@ -47,7 +45,6 @@ Open Here  -
 
 [ **Demo Netlify** ](https://amazing-minsky-53cfda.netlify.app/)
 <br/>
-[ **Demo Heroku** ]()
 
 ### Tech / Stack:
 
@@ -62,8 +59,6 @@ Open Here  -
 - [x] Pagination
 - [x] Debouncing for API 
 - [x] LocalStorage
-
-
 
 
 ## Banks Screen Mock-up UI : 

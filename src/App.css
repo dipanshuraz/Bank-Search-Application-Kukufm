@@ -10,3 +10,7 @@ thead tr {
   align-items: center;
   flex-direction: column;
 }
+
+.bg-img {
+  background-color: gray;
+}
