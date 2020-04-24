@@ -1,14 +1,17 @@
 import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILED
+  FETCH_DATA_FAILED,
+  FILTER_DATA
 } from './action'
 
 
 const initialState = {
   data: [],
   isLoading: false,
-  error: ''
+  error: '',
+  page: 1,
+  perPage: 10,
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,18 +26,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: [...state.data, ...payload]
+        data: payload
       }
     case FETCH_DATA_FAILED:
       return {
         ...state,
         error: payload
       }
+    case FILTER_DATA:
+      console.log(payload, 'filter')
+      return {
+        ...state
+      }
     default:
       return state
   }
 
 }
-
 
 export default reducer

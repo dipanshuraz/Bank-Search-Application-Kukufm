@@ -1,42 +1,38 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchData } from '../redux/action'
+import { fetchData, filterData } from '../redux/action'
 import Table from '../components/Table'
+import debounce from 'react-debouncing';
 
 export class Home extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      search: ''
+      search: '',
     }
   }
 
-  componentDidMount() {
-    // const { fetchData } = this.props
-    // fetchData()
-  }
-
-  searchInputHandle = (e) => {
-    const { fetchData } = this.props
-    console.log(e.target.value)
-    fetchData(e.target.value)
-  }
+  searchInputHandle = debounce((e) => {
+    const { filterData } = this.props
+    filterData(e.target.value)
+  }, 400);
 
   citySelect = (e) => {
     const { fetchData } = this.props
-    console.log(e.target.value)
+    // console.log(e.target.value)
     fetchData(e.target.value)
   }
 
   render() {
-    const { } = this.state
+    const { data } = this.props
+    console.log(data, 'homepage')
     return (
       <div className='container-fluid'>
         <h1>Bank Branches</h1>
         <div className="row">
           <div className="col-md-6">
-            <select name="City" id="" onChange={this.citySelect}>
+            <select class="form-control" name="City" id="" onChange={this.citySelect}>
               <option value="">Select City</option>
               <option value="MUMBAI">Mumbai</option>
               <option value="DELHI">Delhi</option>
@@ -45,9 +41,11 @@ export class Home extends Component {
               <option value="PATNA">Patna</option>
             </select>
           </div>
+
           <div className="col-md-6">
             <label htmlFor="">Search</label>
-            <input type="search" name="" id="" onKeyUp={this.searchInputHandle} />
+            <input class="form-control" type="search" name="" id="" onKeyUp={this.searchInputHandle} />
+
           </div>
         </div>
         <div className="row">
@@ -61,11 +59,12 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  data: state.data
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: (payload) => dispatch(fetchData(payload))
+  fetchData: (payload) => dispatch(fetchData(payload)),
+  filterData: (payload) => dispatch(filterData(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
