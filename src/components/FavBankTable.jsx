@@ -28,6 +28,7 @@ function FavBankTable(props) {
             return (
               <tr key={elem.ifsc}>
                 <th scope="row">{i + 1}</th>
+
                 <td>{elem.ifsc}</td>
                 <td>{elem.bank_name}</td>
                 <td>{elem.branch}</td>

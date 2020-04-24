@@ -43,8 +43,6 @@ const reducer = (state = initialState, action) => {
         error: payload
       }
     case FILTER_DATA:
-
-
       if (payload === '') {
 
         return {
@@ -54,13 +52,13 @@ const reducer = (state = initialState, action) => {
       } else {
         let filteredData = state.data.filter((elem) => {
           return (
-            elem.ifsc.indexOf(payload) !== -1 ||
-            elem.branch.indexOf(payload) !== -1 ||
-            elem.address.indexOf(payload) !== -1 ||
-            elem.city.indexOf(payload) !== -1 ||
-            elem.district.indexOf(payload) !== -1 ||
-            elem.state.indexOf(payload) !== -1 ||
-            elem.bank_name.indexOf(payload) !== -1
+            elem.ifsc.toLowerCase().indexOf(payload) !== -1 ||
+            elem.branch.toLowerCase().indexOf(payload) !== -1 ||
+            elem.address.toLowerCase().indexOf(payload) !== -1 ||
+            elem.city.toLowerCase().indexOf(payload) !== -1 ||
+            elem.district.toLowerCase().indexOf(payload) !== -1 ||
+            elem.state.toLowerCase().indexOf(payload) !== -1 ||
+            elem.bank_name.toLowerCase().indexOf(payload) !== -1
           );
         });
 
