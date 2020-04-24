@@ -1,9 +1,112 @@
+# Banks Search Application - kukuFM
+
+- [x] frontend  - [ **Demo Netlify** ](https://amazing-minsky-53cfda.netlify.app/)
+- [x] frontend  - [ **Demo Heroku** ]()
+
+
+
+## Problem Statement
+FRONT-END WEB DEVELOPER ASSESSMENT
+
+### Instructions:
+
+You need to develop a single page web app (preferably, but not necessarily in AngularJS).
+The app should list and search for banks that are fetched from the API mentioned below. There
+should be a dropdown for cities (just put in 5 cities in there) and there is a search bar. As I type
+in the search area, the table should be dynamically filtered (client-side filtering). Search should
+be across all fields.
+
+
+### Essentials your applications should have:
+
+- [x] 1. bank search screen which would show a list of banks
+- [x] 2. user should be able to search by text for the banks, across all the fields (important: there
+would be no search button)
+- [x] 3. pagination for the results of the search, the user should be able to select page size
+- [x] 4. mark some banks as favourites. View banks that were marked as favourites (favourites
+should persist state event if the website is refreshed or reloaded)
+- [x] 5. API calls should be cached
+- [x] 6. your application should be deployed to Heroku / Github pages
+
+
+### For extra fun, you can try the following:
+
+- [x] 1. clicking on bank name would redirect to a bank page, with a route like banks/{bankid}
+that displays the details of the bank
+Please note: below mock-ups are for reference only. You are free to do the styling as you
+please.
+
+### Deliverables:
+
+- [x] 1. Hosting URL on Heroku / Github pages
+- [x] 2. Github repo link to your solution
+- [x] 3. Time taken to complete this
+
+## Demo Link
+Open Here  - 
+
+[ **Demo Netlify** ](https://amazing-minsky-53cfda.netlify.app/)
+<br/>
+[ **Demo Heroku** ]()
+
+### Tech / Stack:
+
+ - HTML5
+ - CSS3 
+ - JavaScript
+ - React 
+ - Redux
+ 
+### Features implemented:
+- [x] Add Employee
+- [x] Delete Employee
+- [x] Custom Modal
+- [x] Toasts
+- [x] React Calendar
+
+
+
+
+## Banks Screen Mock-up UI : 
+![Screenshot](./extra/ui.png)
+<br/>
+
+## My UI :
+
+Step 1 :
+![Screenshot](./extra/1.png)
+Step 2 : 
+<br/>
+
+![Screenshot](./extra/2.png)
+Step 3 : 
+<br/>
+
+![Screenshot](./extra/3.png)
+Step 4 : 
+<br/>
+
+![Screenshot](./extra/4.png)
+<br/>
+
+![Screenshot](./extra/5.png)
+<br/>
+
+![Screenshot](./extra/6.png)
+<br/>
+
+![Screenshot](./extra/7.png)
+<br/>
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.<br />
@@ -11,58 +114,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - Truck Tracking System with Realtime API - Remote State
