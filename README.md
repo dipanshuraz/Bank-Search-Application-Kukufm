@@ -83,14 +83,6 @@ Step 4 :
 ![Screenshot](./extra/4.png)
 <br/>
 
-![Screenshot](./extra/5.png)
-<br/>
-
-![Screenshot](./extra/6.png)
-<br/>
-
-![Screenshot](./extra/7.png)
-<br/>
 
 
 
