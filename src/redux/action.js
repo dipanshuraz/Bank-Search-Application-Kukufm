@@ -5,7 +5,8 @@ export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
 export const FILTER_DATA = 'FILTER_DATA'
 export const MARK_FAV_BANK = 'MARK_FAV_BANK'
-
+export const FETCH_PERSISTED_DATA = 'FETCH_PERSISTED_DATA'
+export const CHANGE_PAGE_NO = 'CHANGE_PAGE_NO'
 export const fetchDataRequest = (payload) => ({
   type: FETCH_DATA_REQUEST,
   payload
@@ -43,6 +44,9 @@ export const fetchData = (payload) => dispatch => {
   }
 }
 
+
+
+
 export const filterData = (payload) => ({
   type: FILTER_DATA,
   payload
@@ -55,6 +59,7 @@ export const markFavBank = (payload) => ({
 })
 
 
+
 // function to query in localstorage
 const findLocalItems = query => {
   for (let key in localStorage) {
@@ -64,3 +69,12 @@ const findLocalItems = query => {
   }
   return 0
 }
+
+export const fetchPersistedData = (payload) => ({
+  type: FETCH_PERSISTED_DATA,
+  payload
+})
+export const changePage = (payload) => ({
+  type: CHANGE_PAGE_NO,
+  payload
+})

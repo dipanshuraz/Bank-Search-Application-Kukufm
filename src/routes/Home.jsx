@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchData, filterData } from '../redux/action'
+import { fetchData, filterData, fetchPersistedData } from '../redux/action'
 import Table from '../components/Table'
 import debounce from 'react-debouncing';
 import FavBankTable from '../components/FavBankTable'
+import Pagination from '../components/Pagination'
 
 export class Home extends Component {
   constructor(props) {
@@ -12,6 +13,11 @@ export class Home extends Component {
     this.state = {
       search: '',
     }
+  }
+
+  componentDidMount() {
+    const { fetchPersistedData } = this.props
+    fetchPersistedData()
   }
 
   searchInputHandle = debounce((e) => {
@@ -26,8 +32,9 @@ export class Home extends Component {
   }
 
   render() {
-    const { data, favBanks } = this.props
+    const { data, favBanks, isLoading } = this.props
     console.log(data, 'homepage')
+    console.log(isLoading)
     return (
       <div className='container-fluid'>
         <h1>Bank Branches</h1>
@@ -51,8 +58,11 @@ export class Home extends Component {
         </div>
         <div className="row d-flex justify-content-center">
           <div className="col-md-12">
-            {data.length ? <Table /> : null}
-            {favBanks.length ? <FavBankTable /> : ""}
+            <Pagination />
+            {isLoading ? <img src="loading.gif" alt="" /> : ''}
+            {favBanks && favBanks.length ? <FavBankTable /> : ""}
+            {data && data.length ? <Table /> : null}
+
           </div>
         </div>
       </div>
@@ -62,12 +72,14 @@ export class Home extends Component {
 
 const mapStateToProps = (state) => ({
   data: state.data,
-  favBanks: state.favBanks
+  favBanks: state.favBanks,
+  isLoading: state.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({
   fetchData: (payload) => dispatch(fetchData(payload)),
-  filterData: (payload) => dispatch(filterData(payload))
+  filterData: (payload) => dispatch(filterData(payload)),
+  fetchPersistedData: () => dispatch(fetchPersistedData())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

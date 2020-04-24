@@ -7,6 +7,7 @@ function FavBankTable(props) {
   console.log(data, 'helloFav')
   return (
     <div>
+      <h1>Favourite Banks</h1>
       <table class="table">
         <thead class="thead-dark">
           <tr>
