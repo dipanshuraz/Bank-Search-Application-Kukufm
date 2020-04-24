@@ -9,7 +9,7 @@ function FavBankTable(props) {
   return (
     <div>
       <h1>Favourite Banks</h1>
-      <table class="table table-responsive">
+      <table class="table table-hover table-responsive">
         <thead class="thead-dark">
           <tr>
             <th scope="col">no.</th>

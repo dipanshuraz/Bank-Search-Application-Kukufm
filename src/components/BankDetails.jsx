@@ -27,22 +27,26 @@ export class BankDetails extends Component {
     return (
       <div className='container parent'>
         <Link to='/' className='my-5 text-dark'><i class="fa-3x fas fa-arrow-left"></i></Link>
+        <h1 className="display-4 text-info">
+          BANK DETAILS :
+        </h1>
         {data && data.map((elem) => {
 
           return (
             <div className='child'>
 
-              <h1>IFSC CODE : {elem.ifsc}</h1>
-              <h2>BANK NAME : {elem.bank_name}</h2>
-              <h2>BRANCH : {elem.branch}</h2>
-              <h2>ADDRESS : {elem.address}</h2>
-              <h2>CITY : {elem.city}</h2>
-              <h2>DISTRICT : {elem.district}</h2>
-              <h2>STATE : {elem.state}</h2>
+              <h1 className='text-dark'>IFSC CODE : {elem.ifsc}</h1>
+              <h2 className='text-success'>BANK NAME : {elem.bank_name}</h2>
+              <h2 className='text-primary'>BRANCH : {elem.branch}</h2>
+              <h2 className='text-warning'>ADDRESS : {elem.address}</h2>
+              <h2 className='text-secondary'>CITY : {elem.city}</h2>
+              <h2 className='text-success'>DISTRICT : {elem.district}</h2>
+              <h2 className='text-danger'>STATE : {elem.state}</h2>
             </div>
           )
-        })}
-      </div>
+        })
+        }
+      </div >
     )
   }
 }

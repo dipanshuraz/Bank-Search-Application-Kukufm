@@ -39,7 +39,7 @@ export class Table extends Component {
     return (
       <div className=''>
         <h1>Banks</h1>
-        <table class="table table-responsive">
+        <table class="table table-hover table-responsive">
           <thead class="thead-dark">
             <tr>
 
