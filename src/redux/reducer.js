@@ -49,7 +49,7 @@ const reducer = (state = initialState, action) => {
         console.log('inside', state.data.length)
         return {
           ...state,
-          data: state.fullData
+          data: state.fullData,
         }
       } else {
         let filteredData = state.data.filter((elem) => {

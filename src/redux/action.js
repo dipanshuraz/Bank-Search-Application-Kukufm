@@ -38,9 +38,11 @@ export const fetchData = (payload) => dispatch => {
   } else {
     return axios.get("https://vast-shore-74260.herokuapp.com/banks?city=" + payload)
       .then(res => {
-        dispatch(fetchDataSuccess(res.data))
-        localStorage.setItem(payload, JSON.stringify(res.data))
-        // console.log(res.data, 'function dispatch')
+        let data = res.data
+        data.forEach((elem) => elem.checkbox = false)
+
+        dispatch(fetchDataSuccess(data))
+        localStorage.setItem(payload, JSON.stringify(data))
       })
       .catch(err => console.log(err.message))
   }
