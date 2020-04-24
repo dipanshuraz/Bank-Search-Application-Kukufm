@@ -58,11 +58,10 @@ Open Here  -
  - Redux
  
 ### Features implemented:
-- [x] Add Employee
-- [x] Delete Employee
-- [x] Custom Modal
-- [x] Toasts
-- [x] React Calendar
+- [x] Filter
+- [x] Pagination
+- [x] Debouncing for API 
+- [x] LocalStorage
 
 
 
