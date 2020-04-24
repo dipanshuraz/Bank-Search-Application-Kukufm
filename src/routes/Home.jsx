@@ -32,8 +32,7 @@ export class Home extends Component {
 
   render() {
     const { data, favBanks, isLoading } = this.props
-    console.log(data, 'homepage')
-    console.log(isLoading)
+
     return (
       <div className='container-fluid'>
         <h1>Bank Branches</h1>

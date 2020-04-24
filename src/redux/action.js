@@ -31,10 +31,10 @@ export const fetchData = (payload) => dispatch => {
   if (res) {
     var localStorageCItiesBank = localStorage.getItem(payload);
     let data = JSON.parse(localStorageCItiesBank)
-    // console.log(JSON.parse(localStorageCItiesBank), 'local');
+
     // passing data from localstorage
     dispatch(fetchDataSuccess(data))
-    // console.log('local')
+
   } else {
     return axios.get("https://vast-shore-74260.herokuapp.com/banks?city=" + payload)
       .then(res => {
@@ -64,7 +64,6 @@ export const markFavBank = (payload) => ({
 
 
 export const selectPageSize = (payload) => {
-  console.log(payload, 'act')
   return {
     type: SELECT_PAGE_SIZE,
     payload

@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { markFavBank } from '../redux/action'
+import CheckBox from './CheckBox'
 
 function FavBankTable(props) {
   const { data, markFavBank } = props
-  console.log(data, 'helloFav')
+
   return (
     <div>
       <h1>Favourite Banks</h1>
@@ -24,15 +25,16 @@ function FavBankTable(props) {
         <tbody>
           {data && data.map((elem, i) => {
 
-            return (<tr onClick={() => console.log(elem.ifsc, 'favTable')} key={elem.ifsc}>
-              <th scope="row">{i + 1}</th>
-              <td>{elem.ifsc}</td>
-              <td>{elem.bank_name}</td>
-              <td>{elem.branch}</td>
-              <td>{elem.address}</td>
-              <td>{elem.city}</td>
-              <td>{elem.district}</td>
-            </tr>)
+            return (
+              <tr key={elem.ifsc}>
+                <th scope="row">{i + 1}</th>
+                <td>{elem.ifsc}</td>
+                <td>{elem.bank_name}</td>
+                <td>{elem.branch}</td>
+                <td>{elem.address}</td>
+                <td>{elem.city}</td>
+                <td>{elem.district}</td>
+              </tr>)
           })}
         </tbody>
       </table>
@@ -44,7 +46,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  markFavBank: payload => dispatch(markFavBank(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavBankTable)
+

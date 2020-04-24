@@ -43,10 +43,10 @@ const reducer = (state = initialState, action) => {
         error: payload
       }
     case FILTER_DATA:
-      console.log(payload, 'filter')
-      console.log(payload)
+
+
       if (payload === '') {
-        console.log('inside', state.data.length)
+
         return {
           ...state,
           data: state.fullData,
@@ -71,18 +71,12 @@ const reducer = (state = initialState, action) => {
       }
 
     case MARK_FAV_BANK:
-      console.log(payload)
-      let arr = state.data.filter((elem) => elem.ifsc === payload)
-      let setArr = [...arr, ...state.favBanks || []]
 
-      localStorage.setItem('markFav', JSON.stringify(setArr))
-      // console.log(JSON.parse(localStorage.getItem('markFav')))
-
-      // arr = arr.filter((elem) => elem.ifsc != payload)
+      localStorage.setItem('markFav', JSON.stringify(payload))
 
       return {
         ...state,
-        favBanks: setArr
+        favBanks: payload
       }
     case FETCH_PERSISTED_DATA:
 
@@ -96,7 +90,7 @@ const reducer = (state = initialState, action) => {
         page: payload
       }
     case SELECT_PAGE_SIZE:
-      console.log(payload, 'reducer')
+
       return {
         ...state,
         perPage: Number(payload)
