@@ -2,7 +2,8 @@ import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILED,
-  FILTER_DATA
+  FILTER_DATA,
+  MARK_FAV_BANK
 } from './action'
 
 
@@ -12,6 +13,7 @@ const initialState = {
   error: '',
   page: 1,
   perPage: 10,
+  favBanks: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -37,6 +39,17 @@ const reducer = (state = initialState, action) => {
       console.log(payload, 'filter')
       return {
         ...state
+      }
+    case MARK_FAV_BANK:
+      console.log(payload)
+      let arr = state.data.filter((elem) => elem.ifsc === payload)
+      console.log(state.favBanks, 'arr')
+
+      // arr = arr.filter((elem) => elem.ifsc != payload)
+
+      return {
+        ...state,
+        favBanks: [...state.favBanks, ...arr]
       }
     default:
       return state

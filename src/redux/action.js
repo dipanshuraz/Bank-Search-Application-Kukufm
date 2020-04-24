@@ -4,6 +4,7 @@ export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
 export const FILTER_DATA = 'FILTER_DATA'
+export const MARK_FAV_BANK = 'MARK_FAV_BANK'
 
 export const fetchDataRequest = (payload) => ({
   type: FETCH_DATA_REQUEST,
@@ -44,6 +45,12 @@ export const fetchData = (payload) => dispatch => {
 
 export const filterData = (payload) => ({
   type: FILTER_DATA,
+  payload
+})
+
+
+export const markFavBank = (payload) => ({
+  type: MARK_FAV_BANK,
   payload
 })
 

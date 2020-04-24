@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { markFavBank } from '../redux/action'
 
-function Table(props) {
+function FavBankTable(props) {
   const { data, markFavBank } = props
-  console.log(data, 'hello')
+  console.log(data, 'helloFav')
   return (
-    <div className='table-responsive'>
-      <table class="table ">
+    <div>
+      <table class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Sr no.</th>
@@ -23,7 +23,7 @@ function Table(props) {
         <tbody>
           {data && data.map((elem, i) => {
 
-            return (<tr onClick={() => markFavBank(elem.ifsc)} key={elem.ifsc}>
+            return (<tr onClick={() => console.log(elem.ifsc, 'favTable')} key={elem.ifsc}>
               <th scope="row">{i}</th>
               <td>{elem.ifsc}</td>
               <td>{elem.bank_name}</td>
@@ -39,11 +39,11 @@ function Table(props) {
   )
 }
 const mapStateToProps = (state) => ({
-  data: state.data
+  data: state.favBanks
 })
 
 const mapDispatchToProps = dispatch => ({
   markFavBank: payload => dispatch(markFavBank(payload))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Table)
+export default connect(mapStateToProps, mapDispatchToProps)(FavBankTable)

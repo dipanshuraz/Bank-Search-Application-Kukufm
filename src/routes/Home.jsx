@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchData, filterData } from '../redux/action'
 import Table from '../components/Table'
 import debounce from 'react-debouncing';
+import FavBankTable from '../components/FavBankTable'
 
 export class Home extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export class Home extends Component {
   }
 
   render() {
-    const { data } = this.props
+    const { data, favBanks } = this.props
     console.log(data, 'homepage')
     return (
       <div className='container-fluid'>
@@ -43,14 +44,15 @@ export class Home extends Component {
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="">Search</label>
-            <input class="form-control" type="search" name="" id="" onKeyUp={this.searchInputHandle} />
+
+            <input class="form-control" type="search" name="" id="" placeholder='Search' onKeyUp={this.searchInputHandle} />
 
           </div>
         </div>
-        <div className="row">
+        <div className="row d-flex justify-content-center">
           <div className="col-md-12">
-            <Table />
+            {data.length ? <Table /> : null}
+            {favBanks.length ? <FavBankTable /> : ""}
           </div>
         </div>
       </div>
@@ -59,7 +61,8 @@ export class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.data
+  data: state.data,
+  favBanks: state.favBanks
 })
 
 const mapDispatchToProps = dispatch => ({
