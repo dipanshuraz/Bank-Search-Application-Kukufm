@@ -27,7 +27,6 @@ export class Home extends Component {
 
   citySelect = (e) => {
     const { fetchData } = this.props
-    // console.log(e.target.value)
     fetchData(e.target.value)
   }
 
@@ -56,13 +55,13 @@ export class Home extends Component {
 
           </div>
         </div>
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center align-items-center">
           <div className="col-md-12">
-            <Pagination />
+
             {isLoading ? <img src="loading.gif" alt="" /> : ''}
             {favBanks && favBanks.length ? <FavBankTable /> : ""}
             {data && data.length ? <Table /> : null}
-
+            <Pagination />
           </div>
         </div>
       </div>

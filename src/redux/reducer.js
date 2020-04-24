@@ -5,12 +5,14 @@ import {
   FILTER_DATA,
   MARK_FAV_BANK,
   FETCH_PERSISTED_DATA,
-  CHANGE_PAGE_NO
+  CHANGE_PAGE_NO,
+  SELECT_PAGE_SIZE
 } from './action'
 
 
 const initialState = {
   data: [],
+  fullData: [],
   isLoading: false,
   error: '',
   favBanks: [],
@@ -32,6 +34,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         data: payload,
+        fullData: payload,
         totalPages: payload.length / state.perPage
       }
     case FETCH_DATA_FAILED:
@@ -41,23 +44,32 @@ const reducer = (state = initialState, action) => {
       }
     case FILTER_DATA:
       console.log(payload, 'filter')
+      console.log(payload)
+      if (payload === '') {
+        console.log('inside', state.data.length)
+        return {
+          ...state,
+          data: state.fullData
+        }
+      } else {
+        let filteredData = state.data.filter((elem) => {
+          return (
+            elem.ifsc.indexOf(payload) !== -1 ||
+            elem.branch.indexOf(payload) !== -1 ||
+            elem.address.indexOf(payload) !== -1 ||
+            elem.city.indexOf(payload) !== -1 ||
+            elem.district.indexOf(payload) !== -1 ||
+            elem.state.indexOf(payload) !== -1 ||
+            elem.bank_name.indexOf(payload) !== -1
+          );
+        });
 
-      let filteredData = state.data.filter((elem) => {
-        return (
-          elem.ifsc.indexOf(payload) !== -1 ||
-          elem.branch.indexOf(payload) !== -1 ||
-          elem.address.indexOf(payload) !== -1 ||
-          elem.city.indexOf(payload) !== -1 ||
-          elem.district.indexOf(payload) !== -1 ||
-          elem.state.indexOf(payload) !== -1 ||
-          elem.bank_name.indexOf(payload) !== -1
-        );
-      });
-      console.log(filteredData, 'filtered Now Woeking');
-
-      return {
-        ...state
+        return {
+          ...state,
+          data: filteredData
+        }
       }
+
     case MARK_FAV_BANK:
       console.log(payload)
       let arr = state.data.filter((elem) => elem.ifsc === payload)
@@ -83,6 +95,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         page: payload
       }
+    case SELECT_PAGE_SIZE:
+      console.log(payload, 'reducer')
+      return {
+        ...state,
+        perPage: Number(payload)
+      }
+
     default:
       return state
   }

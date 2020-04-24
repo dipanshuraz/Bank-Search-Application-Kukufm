@@ -7,6 +7,8 @@ export const FILTER_DATA = 'FILTER_DATA'
 export const MARK_FAV_BANK = 'MARK_FAV_BANK'
 export const FETCH_PERSISTED_DATA = 'FETCH_PERSISTED_DATA'
 export const CHANGE_PAGE_NO = 'CHANGE_PAGE_NO'
+export const SELECT_PAGE_SIZE = 'SELECT_PAGE_SIZE'
+
 export const fetchDataRequest = (payload) => ({
   type: FETCH_DATA_REQUEST,
   payload
@@ -59,6 +61,15 @@ export const markFavBank = (payload) => ({
 })
 
 
+export const selectPageSize = (payload) => {
+  console.log(payload, 'act')
+  return {
+    type: SELECT_PAGE_SIZE,
+    payload
+  }
+}
+
+
 
 // function to query in localstorage
 const findLocalItems = query => {
@@ -78,3 +89,5 @@ export const changePage = (payload) => ({
   type: CHANGE_PAGE_NO,
   payload
 })
+
+

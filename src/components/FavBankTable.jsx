@@ -8,10 +8,10 @@ function FavBankTable(props) {
   return (
     <div>
       <h1>Favourite Banks</h1>
-      <table class="table">
+      <table class="table table-responsive">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Sr no.</th>
+            <th scope="col">no.</th>
             <th scope="col">Ifsc</th>
             <th scope="col">bank_name</th>
             <th scope="col">Branch</th>
@@ -25,7 +25,7 @@ function FavBankTable(props) {
           {data && data.map((elem, i) => {
 
             return (<tr onClick={() => console.log(elem.ifsc, 'favTable')} key={elem.ifsc}>
-              <th scope="row">{i}</th>
+              <th scope="row">{i + 1}</th>
               <td>{elem.ifsc}</td>
               <td>{elem.bank_name}</td>
               <td>{elem.branch}</td>

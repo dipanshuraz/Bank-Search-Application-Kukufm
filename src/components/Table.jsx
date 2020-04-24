@@ -5,13 +5,15 @@ import { markFavBank } from '../redux/action'
 function Table(props) {
   const { data, markFavBank, page, perPage } = props
   console.log(data, 'hello')
+  console.log(perPage, "perPage")
   return (
     <div className=''>
       <h1>Banks</h1>
       <table class="table table-responsive">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Sr no.</th>
+
+            <th scope="col">no.</th>
             <th scope="col">Ifsc</th>
             <th scope="col">bank_name</th>
             <th scope="col">Branch</th>
@@ -25,7 +27,7 @@ function Table(props) {
           {data && data.filter((a, i) => i >= perPage * (page - 1) && i < perPage * page).map((elem, i) => {
 
             return (<tr onClick={() => markFavBank(elem.ifsc)} key={elem.ifsc}>
-              <th scope="row">{i}</th>
+              <th scope="row">{i + 1}</th>
               <td>{elem.ifsc}</td>
               <td>{elem.bank_name}</td>
               <td>{elem.branch}</td>
@@ -40,14 +42,14 @@ function Table(props) {
   )
 }
 const mapStateToProps = (state) => ({
-  data: state.data,
   page: state.page,
   data: state.data,
   perPage: state.perPage
 })
 
 const mapDispatchToProps = dispatch => ({
-  markFavBank: payload => dispatch(markFavBank(payload))
+  markFavBank: payload => dispatch(markFavBank(payload)),
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table)
